@@ -141,9 +141,13 @@ const app = {
     // click hint btn
     hintBtn.onclick = () => {
       board.classList.add("hint");
+      hintBtn.disabled = true;
       setTimeout(() => {
         board.classList.remove("hint");
       }, 1000);
+      setTimeout(() => {
+        hintBtn.disabled = false;
+      }, 5000);
     };
   },
   removeActive: function () {
