@@ -85,9 +85,11 @@ const app = {
     itemList = $$(".item");
     itemList.forEach((item) => {
       item.onclick = () => {
-        if (item.classList.contains("active")) return;
-        if (item.classList.contains("show")) return;
-
+        if (
+          item.classList.contains("active") ||
+          item.classList.contains("show")
+        )
+          return;
         this.clickCount++;
         if (this.clickCount == 3) this.clickCount = 1;
 
@@ -151,7 +153,8 @@ const app = {
     };
   },
   removeActive: function () {
-    itemList.forEach((item) => {
+    const itemActiveList = $$(".item.active");
+    itemActiveList.forEach((item) => {
       item.classList.remove("active");
     });
   },
